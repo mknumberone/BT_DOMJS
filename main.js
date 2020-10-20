@@ -8,117 +8,118 @@ btn[1].addEventListener('click',function(){
 })
 
 //Show less And Show more
-// function myFunction() {
-//     var dots = document.getElementById("dots");
-//     var moreText = document.getElementById("more");
-//     var btnText = document.getElementById("myBtn");
+function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
   
-//     if (dots.style.display === "none") {
-//       dots.style.display = "inline";
-//       btnText.innerHTML = "Read more"; 
-//       moreText.style.display = "none";
-//     } else {
-//       dots.style.display = "none";
-//       btnText.innerHTML = "Read less"; 
-//       moreText.style.display = "inline";
-//     }
-//   }
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more"; 
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less"; 
+      moreText.style.display = "inline";
+    }
+  }
 
-// class Stopwatch {
-//     constructor(display, results) {
-//         this.running = false;
-//         this.display = display;
-//         this.results = results;
-//         this.laps = [];
-//         this.reset();
-//         this.print(this.times);
-//     }
+//clock
+class Stopwatch {
+    constructor(display, results) {
+        this.running = false;
+        this.display = display;
+        this.results = results;
+        this.laps = [];
+        this.reset();
+        this.print(this.times);
+    }
     
-//     reset() {
-//         this.times = [ 0, 0, 0 ];
-//     }
+    reset() {
+        this.times = [ 0, 0, 0 ];
+    }
     
-//     start() {
-//         if (!this.time) this.time = performance.now();
-//         if (!this.running) {
-//             this.running = true;
-//             requestAnimationFrame(this.step.bind(this));
-//         }
-//     }
+    start() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+    }
     
-//     lap() {
-//         let times = this.times;
-//         let li = document.createElement('li');
-//         li.innerText = this.format(times);
-//         this.results.appendChild(li);
-//     }
+    lap() {
+        let times = this.times;
+        let li = document.createElement('li');
+        li.innerText = this.format(times);
+        this.results.appendChild(li);
+    }
     
-//     stop() {
-//         this.running = false;
-//         this.time = null;
-//     }
+    stop() {
+        this.running = false;
+        this.time = null;
+    }
 
-//     restart() {
-//         if (!this.time) this.time = performance.now();
-//         if (!this.running) {
-//             this.running = true;
-//             requestAnimationFrame(this.step.bind(this));
-//         }
-//         this.reset();
-//     }
+    restart() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+        this.reset();
+    }
     
-//     clear() {
-//         clearChildren(this.results);
-//     }
+    clear() {
+        clearChildren(this.results);
+    }
     
-//     step(timestamp) {
-//         if (!this.running) return;
-//         this.calculate(timestamp);
-//         this.time = timestamp;
-//         this.print();
-//         requestAnimationFrame(this.step.bind(this));
-//     }
+    step(timestamp) {
+        if (!this.running) return;
+        this.calculate(timestamp);
+        this.time = timestamp;
+        this.print();
+        requestAnimationFrame(this.step.bind(this));
+    }
     
-//     calculate(timestamp) {
-//         var diff = timestamp - this.time;
-//         // Hundredths of a second are 100 ms
-//         this.times[2] += diff / 10;
-//         // Seconds are 100 hundredths of a second
-//         if (this.times[2] >= 100) {
-//             this.times[1] += 1;
-//             this.times[2] -= 100;
-//         }
-//         // Minutes are 60 seconds
-//         if (this.times[1] >= 60) {
-//             this.times[0] += 1;
-//             this.times[1] -= 60;
-//         }
-//     }
+    calculate(timestamp) {
+        var diff = timestamp - this.time;
+        // Hundredths of a second are 100 ms
+        this.times[2] += diff / 10;
+        // Seconds are 100 hundredths of a second
+        if (this.times[2] >= 100) {
+            this.times[1] += 1;
+            this.times[2] -= 100;
+        }
+        // Minutes are 60 seconds
+        if (this.times[1] >= 60) {
+            this.times[0] += 1;
+            this.times[1] -= 60;
+        }
+    }
     
-//     print() {
-//         this.display.innerText = this.format(this.times);
-//     }
+    print() {
+        this.display.innerText = this.format(this.times);
+    }
     
-//     format(times) {
-//         return `\
-//     ${pad0(times[0], 2)}:\
-//     ${pad0(times[1], 2)}:\
-//     ${pad0(Math.floor(times[2]), 2)}`;
-//     }
-// }
+    format(times) {
+        return `\
+    ${pad0(times[0], 2)}:\
+    ${pad0(times[1], 2)}:\
+    ${pad0(Math.floor(times[2]), 2)}`;
+    }
+}
 
-// function pad0(value, count) {
-//     var result = value.toString();
-//     for (; result.length < count; --count)
-//         result = '0' + result;
-//     return result;
-// }
+function pad0(value, count) {
+    var result = value.toString();
+    for (; result.length < count; --count)
+        result = '0' + result;
+    return result;
+}
 
-// function clearChildren(node) {
-//     while (node.lastChild)
-//         node.removeChild(node.lastChild);
-// }
+function clearChildren(node) {
+    while (node.lastChild)
+        node.removeChild(node.lastChild);
+}
 
-// let stopwatch = new Stopwatch(
-//     document.querySelector('.stopwatch'),
-//     document.querySelector('.results'));
+let stopwatch = new Stopwatch(
+    document.querySelector('.stopwatch'),
+    document.querySelector('.results'));
