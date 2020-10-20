@@ -11,10 +11,20 @@
     </style>
 </head>
 <body>
-    <button type="button" class="btn btn-danger">RED</button>
-    <button type="button" class="btn btn-success">GREEN</button>
+    <nav class="controls">
+        <a href="#" class="button btn btn-danger" onClick="stopwatch.start();">Start</a>
+        <a href="#" class="button btn btn-danger" onClick="stopwatch.lap();">Lap</a>
+        <a href="#" class="button btn btn-danger" onClick="stopwatch.stop();">Stop</a>
+        <a href="#" class="button btn btn-danger" onClick="stopwatch.restart();">Restart</a>
+        <a href="#" class="button btn btn-danger" onClick="stopwatch.clear();">Clear Laps</a>
+    </nav>
+    <div class="stopwatch"></div>
+    <ul class="results"></ul> 
+
+    <button type="button" class="btn btn-danger" style="margin:auto;">RED</button>
+    <button type="button" class="btn btn-success" style="margin:auto ;">GREEN</button>
     
-    <!-- <h2>Read More Read Less Button</h2>
+    <h2 style="margin-top: 100px;">Read More Read Less Button</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span>
         <span id="more">
@@ -25,15 +35,7 @@
         </span>
      </p>
     <button onclick="myFunction()" id="myBtn">Read more</button>
-    <nav class="controls">
-        <a href="#" class="button btn btn-danger" onClick="stopwatch.start();">Start</a>
-        <a href="#" class="button btn btn-danger" onClick="stopwatch.lap();">Lap</a>
-        <a href="#" class="button btn btn-danger" onClick="stopwatch.stop();">Stop</a>
-        <a href="#" class="button btn btn-danger" onClick="stopwatch.restart();">Restart</a>
-        <a href="#" class="button btn btn-danger" onClick="stopwatch.clear();">Clear Laps</a>
-    </nav>
-    <div class="stopwatch"></div>
-    <ul class="results"></ul> -->
+
     <script src="main.js"></script>
 </body>
 </html>
